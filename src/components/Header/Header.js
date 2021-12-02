@@ -1,10 +1,5 @@
-
 function Header() {
-  return (
-      <header className="App-header">
-        App header
-      </header>
-  );
+  return <header className="App-header"></header>;
 }
 
 export default Header;

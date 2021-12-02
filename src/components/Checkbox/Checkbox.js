@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Checkbox({ config }) {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(config.checked);
 
   const changeHandler = () => {
     setChecked(!checked);

@@ -17,8 +17,9 @@ function BeginnerList() {
     setSustResult(result);
     setTouched(true);
   };
+  console.log(beginnersConfig);
   return (
-    <div>
+    <div className="list-wrapper">
       <h1 className="header">Towards sustainability</h1>
       <h3 className="beginner">Beginners list</h3>
       {beginnersConfig.map((config) => (
@@ -33,18 +34,29 @@ function BeginnerList() {
       </div>
       <div>
         <strong>
-          {sustResult > 0 && <div>You are awesome! </div>}
+          {sustResult > 0 && sustResult < 30 && <div>You are doing well! </div>}
+          {sustResult >= 30 && sustResult < 60 && (
+            <div>You are doing great! </div>
+          )}
+          {sustResult >= 60 && sustResult <= 90 && <div>You are amazing! </div>}
+          {sustResult > 99 && <div>You are awesome! </div>}
           <div className="result">
             {sustResult > 0
-              ? `You have done ${sustResult}% of the beginners list`
+              ? `You have done ${sustResult}% of the beginners list.`
               : touched
-              ? "Please check some checkboxes"
+              ? "You haven't checked any list item"
               : ""}
           </div>
+          {sustResult > 0 && sustResult < 100 && (
+            <div>Make it all and go to the expert list! </div>
+          )}
+          {sustResult === 100 && <div>Now you can go to the next level!</div>}
         </strong>
       </div>
       {sustResult === 100 && (
-        <Link to="/expert-list">Go to Expert List page</Link>
+        <Link className="link-button" to="/expert-list">
+          <button type="button">Go to The Expert List</button>
+        </Link>
       )}
     </div>
   );
