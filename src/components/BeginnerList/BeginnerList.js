@@ -3,21 +3,26 @@ import { Link } from "react-router-dom";
 import { beginnersConfig } from "./config";
 import SustainableItem from "../SustainableItem";
 
-function BeginnerList() {
+// React component
+const BeginnerList = () => {
+  // Declaring state
   const [sustResult, setSustResult] = useState("");
   const [touched, setTouched] = useState(false);
   const calculateSustainability = () => {
     const totalNumCheckboxes = beginnersConfig.length;
-    const checkedCheckboxes = beginnersConfig.filter(
-      (config) => config.checked
-    );
+
+    const checkedCheckboxesArray = beginnersConfig.filter((configObj) => {
+      console.log(configObj);
+      return configObj.checked;
+    });
     const result = Math.round(
-      (100 * checkedCheckboxes.length) / totalNumCheckboxes
+      (100 * checkedCheckboxesArray.length) / totalNumCheckboxes
     );
+    console.log(result);
     setSustResult(result);
     setTouched(true);
   };
-  console.log(beginnersConfig);
+  console.log("render");
   return (
     <div className="list-wrapper">
       <h1 className="header">Towards sustainability</h1>
@@ -31,6 +36,11 @@ function BeginnerList() {
 
       <div>
         <button onClick={calculateSustainability}>Check results</button>
+        {sustResult === 100 && (
+          <Link className="link-button" to="/expert-list">
+            <button type="button">Go to the expert list</button>
+          </Link>
+        )}
       </div>
       <div>
         <strong>
@@ -44,7 +54,7 @@ function BeginnerList() {
             {sustResult > 0
               ? `You have done ${sustResult}% of the beginners list.`
               : touched
-              ? "You haven't checked any list item"
+              ? "You haven't checked any item"
               : ""}
           </div>
           {sustResult > 0 && sustResult < 100 && (
@@ -53,13 +63,8 @@ function BeginnerList() {
           {sustResult === 100 && <div>Now you can go to the next level!</div>}
         </strong>
       </div>
-      {sustResult === 100 && (
-        <Link className="link-button" to="/expert-list">
-          <button type="button">Go to The Expert List</button>
-        </Link>
-      )}
     </div>
   );
-}
+};
 
 export default BeginnerList;

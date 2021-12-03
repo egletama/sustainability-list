@@ -28,8 +28,16 @@ function ExpertList() {
         />
       ))}
 
-      <div>
-        <button onClick={calculateSustainability}>Check results</button>
+      <div className="button-div">
+        <button onClick={calculateSustainability}>Check results</button>{" "}
+        <Link to="/">
+          <button type="button">Back to the beginners list</button>
+        </Link>
+        {sustResult === 100 && (
+          <Link to="/expert-list">
+            <button type="button">Go to the super expert list</button>
+          </Link>
+        )}
       </div>
       <div>
         <strong>
@@ -52,16 +60,6 @@ function ExpertList() {
           {sustResult === 100 && <div>Now you can go to the next level!</div>}
         </strong>
       </div>
-      <div>
-        {sustResult === 100 && (
-          <Link to="/expert-list">
-            <button type="button">Go to The Super Expert List</button>
-          </Link>
-        )}{" "}
-      </div>
-      <Link to="/">
-        <button type="button">Back to The Beginners List</button>
-      </Link>
     </div>
   );
 }
