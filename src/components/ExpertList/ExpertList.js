@@ -23,7 +23,7 @@ function ExpertList() {
       <h3 className="exper">Experts list</h3>
       {expertsConfig.map((expertsConfig) => (
         <SustainableItem
-          config={expertsConfig}
+          configObj={expertsConfig}
           calculateSustainability={calculateSustainability}
         />
       ))}

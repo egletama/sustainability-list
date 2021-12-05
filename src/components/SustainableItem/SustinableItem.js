@@ -1,10 +1,10 @@
 import Checkbox from "../Checkbox";
 
-function SustanableItem({ config }) {
+function SustanableItem({ configObj }) {
   return (
     <div>
-      <Checkbox config={config} />
-      <label> {config.text} </label>
+      <Checkbox configObj={configObj} />
+      <label> {configObj.text} </label>
     </div>
   );
 }

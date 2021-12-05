@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { beginnersConfig } from "./config";
 import SustainableItem from "../SustainableItem";
@@ -8,28 +8,33 @@ const BeginnerList = () => {
   // Declaring state
   const [sustResult, setSustResult] = useState("");
   const [touched, setTouched] = useState(false);
-  const calculateSustainability = () => {
-    const totalNumCheckboxes = beginnersConfig.length;
 
+  const calculateSustainability = (isFirstRender) => {
+    const totalNumCheckboxes = beginnersConfig.length;
     const checkedCheckboxesArray = beginnersConfig.filter((configObj) => {
-      console.log(configObj);
       return configObj.checked;
     });
     const result = Math.round(
       (100 * checkedCheckboxesArray.length) / totalNumCheckboxes
     );
-    console.log(result);
     setSustResult(result);
-    setTouched(true);
+    if (!isFirstRender) {
+      setTouched(true);
+    }
   };
-  console.log("render");
+
+  useEffect(() => {
+    console.log("first render");
+    calculateSustainability(true);
+  }, []);
+
   return (
     <div className="list-wrapper">
       <h1 className="header">Towards sustainability</h1>
       <h3 className="beginner">Beginners list</h3>
-      {beginnersConfig.map((config) => (
+      {beginnersConfig.map((configObj) => (
         <SustainableItem
-          config={config}
+          configObj={configObj}
           calculateSustainability={calculateSustainability}
         />
       ))}
