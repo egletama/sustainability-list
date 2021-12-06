@@ -4,11 +4,6 @@ export const expertsConfig = [
     checked: false,
   },
 
-  // {
-  //   text: "Bought electric car",
-  //   checked: false,
-  // },
-
   {
     text: "Using LED lighting or CFL bulbs instead of incandescent lighting",
     checked: false,
@@ -17,14 +12,6 @@ export const expertsConfig = [
     text: "Using rechargeable batteries where possible",
     checked: false,
   },
-  // {
-  //   text: "Put on an extra layer of clothing instead of turning on the heating. Seriously, doubling up on your socks does wonders!",
-  //   checked: false,
-  // },
-  // {
-  //   text: "Open up your blinds and use as much natural light as possible before switching on your light bulbs. You all get to enjoy some more sunshine",
-  //   checked: false,
-  // },
 
   {
     text: "Growing my own herbs, fruit and vegetables",
@@ -46,7 +33,7 @@ export const expertsConfig = [
     checked: false,
   },
   {
-    text: "Buying second-hand clothes where possible",
+    text: "Buying second-hand clothes when possible",
     checked: false,
   },
   {
@@ -57,4 +44,16 @@ export const expertsConfig = [
     text: "Ditched my car and embraced car-free living",
     checked: false,
   },
+  // {
+  //   text: "Bought electric car",
+  //   checked: false,
+  // },
+  // {
+  //   text: "Put on an extra layer of clothing instead of turning on the heating. Seriously, doubling up on your socks does wonders!",
+  //   checked: false,
+  // },
+  // {
+  //   text: "Open up your blinds and use as much natural light as possible before switching on your light bulbs. You all get to enjoy some more sunshine",
+  //   checked: false,
+  // },
 ];

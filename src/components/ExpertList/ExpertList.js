@@ -41,8 +41,10 @@ function ExpertList() {
       </div>
       <div>
         <strong>
-          {sustResult > 0 && sustResult < 30 && <div>You are doing well! </div>}
-          {sustResult >= 30 && sustResult < 60 && (
+          {sustResult > 0 && sustResult <= 30 && (
+            <div>You are doing well! </div>
+          )}
+          {sustResult > 30 && sustResult < 60 && (
             <div>You are doing great! </div>
           )}
           {sustResult >= 60 && sustResult <= 90 && <div>You are amazing! </div>}

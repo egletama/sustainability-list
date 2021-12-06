@@ -18,14 +18,15 @@ const BeginnerList = () => {
       (100 * checkedCheckboxesArray.length) / totalNumCheckboxes
     );
     setSustResult(result);
+    // check if it´s the initial render
     if (!isFirstRender) {
       setTouched(true);
     }
   };
 
   useEffect(() => {
-    console.log("first render");
-    calculateSustainability(true);
+    const isFirstRender = true;
+    calculateSustainability(isFirstRender);
   }, []);
 
   return (
@@ -35,12 +36,12 @@ const BeginnerList = () => {
       {beginnersConfig.map((configObj) => (
         <SustainableItem
           configObj={configObj}
-          calculateSustainability={calculateSustainability}
+          calculateSustainability={() => calculateSustainability()}
         />
       ))}
 
       <div>
-        <button onClick={calculateSustainability}>Check results</button>
+        <button onClick={() => calculateSustainability()}>Check results</button>
         {sustResult === 100 && (
           <Link className="link-button" to="/expert-list">
             <button type="button">Go to the expert list</button>
@@ -49,8 +50,10 @@ const BeginnerList = () => {
       </div>
       <div>
         <strong>
-          {sustResult > 0 && sustResult < 30 && <div>You are doing well! </div>}
-          {sustResult >= 30 && sustResult < 60 && (
+          {sustResult > 0 && sustResult <= 30 && (
+            <div>You are doing well! </div>
+          )}
+          {sustResult > 30 && sustResult < 60 && (
             <div>You are doing great! </div>
           )}
           {sustResult >= 60 && sustResult <= 90 && <div>You are amazing! </div>}
