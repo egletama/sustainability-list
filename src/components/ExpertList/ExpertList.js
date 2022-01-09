@@ -19,7 +19,7 @@ function ExpertList() {
   };
   return (
     <div className="list-wrapper">
-      <h1 className="header">Towards sustainability</h1>
+      <h1 className="header">Towards Sustainability</h1>
       <h3 className="exper">Experts list</h3>
       {expertsConfig.map((expertsConfig) => (
         <SustainableItem
@@ -29,13 +29,19 @@ function ExpertList() {
       ))}
 
       <div className="button-div">
-        <button onClick={calculateSustainability}>Check results</button>{" "}
+        <button className="checkButton" onClick={calculateSustainability}>
+          Check results
+        </button>{" "}
         <Link to="/">
-          <button type="button">Back to the beginners list</button>
+          <button className="checkButton" type="button">
+            Back to the beginners list
+          </button>
         </Link>
         {sustResult === 100 && (
           <Link to="/expert-list">
-            <button type="button">Go to the super expert list</button>
+            <button className="checkButton" type="button">
+              Go to the super expert list
+            </button>
           </Link>
         )}
       </div>

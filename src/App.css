@@ -17,11 +17,11 @@ body {
   padding-left: 100px;
 }
 
-h1 {
-  padding-bottom: 50px;
+.header {
+  padding-bottom: 40px;
 }
 
-button {
+.checkButton {
   width: 210px;
   height: 60px;
   font-size: calc(10px + 1vmin);
@@ -36,7 +36,7 @@ button {
   border-color: rgb(10, 104, 10);
 }
 
-button:hover {
+.checkButton:hover {
   color: rgb(185, 236, 143);
   background-color: rgba(18, 104, 51, 0.788);
 }

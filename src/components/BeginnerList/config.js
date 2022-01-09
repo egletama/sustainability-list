@@ -3,9 +3,13 @@ export const beginnersConfig = [
     text: "Taking my own bag for groceries",
     checked: false,
   },
+  {
+    text: "Using cloths instead of paper towels",
+    checked: false,
+  },
 
   {
-    text: "Taking my own cup for take away coffee",
+    text: "Taking the stairs over the elevator",
     checked: false,
   },
 
@@ -13,18 +17,16 @@ export const beginnersConfig = [
     text: "Put up a no junk mail sign on my letterbox",
     checked: false,
   },
+
   {
-    text: "Taking the stairs over the elevator",
+    text: "Taking my own cup for take away coffee",
     checked: false,
   },
   {
     text: "Always using double-sided printing where possible",
     checked: false,
   },
-  {
-    text: "Using cloths instead of paper towels",
-    checked: false,
-  },
+
   {
     text: "Reducing my food waste by buying only what I need",
     checked: false,

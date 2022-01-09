@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { beginnersConfig } from "./config";
 import SustainableItem from "../SustainableItem";
 
-// React component
+// React functional component
 const BeginnerList = () => {
   // Declaring state
-  const [sustResult, setSustResult] = useState("");
-  const [touched, setTouched] = useState(false);
+  const [sustResult, setSustResult] = useState(""); // initial value
+  const [touched, setTouched] = useState(false); // initial value
 
   const calculateSustainability = (isFirstRender) => {
     const totalNumCheckboxes = beginnersConfig.length;
@@ -24,6 +24,7 @@ const BeginnerList = () => {
     }
   };
 
+  // react function that runs only on 1st render
   useEffect(() => {
     const isFirstRender = true;
     calculateSustainability(isFirstRender);
@@ -31,7 +32,7 @@ const BeginnerList = () => {
 
   return (
     <div className="list-wrapper">
-      <h1 className="header">Towards sustainability</h1>
+      <h1 className="header">Towards Sustainability</h1>
       <h3 className="beginner">Beginners list</h3>
       {beginnersConfig.map((configObj) => (
         <SustainableItem
@@ -41,10 +42,17 @@ const BeginnerList = () => {
       ))}
 
       <div>
-        <button onClick={() => calculateSustainability()}>Check results</button>
+        <button
+          className="checkButton"
+          onClick={() => calculateSustainability()}
+        >
+          Check results
+        </button>
         {sustResult === 100 && (
           <Link className="link-button" to="/expert-list">
-            <button type="button">Go to the expert list</button>
+            <button className="checkButton" type="button">
+              Go to the expert list
+            </button>
           </Link>
         )}
       </div>
@@ -68,7 +76,7 @@ const BeginnerList = () => {
           {sustResult > 0 && sustResult < 100 && (
             <div>Make it all and go to the expert list! </div>
           )}
-          {sustResult === 100 && <div>Now you can go to the next level!</div>}
+          {sustResult === 100 && <div> Now you can go to the next level!</div>}
         </strong>
       </div>
     </div>
